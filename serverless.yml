@@ -2,7 +2,7 @@ service: project-validation-slack-notification
 
 provider:
   name: google
-  stage: dev
+  # stage: dev
   runtime: nodejs10
   region: us-central1
   project: storyteq-api

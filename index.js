@@ -4,22 +4,24 @@
  * @param {!Object} event Event payload.
  * @param {!Object} context Metadata for the event.
  */
-const axios = require('axios');
+require('dotenv').config()
 require('firebase-functions/lib/logger/compat');
+const axios = require('axios');
 
 exports.notifySlack = (event, context) => {
-  console.log('event.data', Buffer.from(event.data, 'base64'));
-  console.log('contenxt', context);
-
   const message = event.data
     ? Buffer.from(event.data, 'base64').toString()
     : 'Hello, World';
+
+  console.log('event.data', message);
+  console.log('contenxt', context);
+
 
   const info = JSON.stringify(context);
 
   axios({
     method: 'post',
-    url: 'https://hooks.slack.com/services/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',
+    url: process.env.SLACK_WEBHOOK,
     headers: {
       'content-type': 'application/json'
     },
