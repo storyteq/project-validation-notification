@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "serverless deploy",
-    "notifySlack": "serverless invoke --function first"
+    "deploy": "serverless deploy function -f notifications"
   },
   "author": "serverless.com",
   "license": "MIT",

@@ -1,8 +1,8 @@
-service: project-validation-slack-notification
+service: project-validation
 
 provider:
   name: google
-  # stage: dev
+  stage: prod
   runtime: nodejs10
   region: us-central1
   project: storyteq-api
@@ -27,14 +27,7 @@ package:
     - .git/**
 
 functions:
-  first:
-    # handler: http
-    # events:
-    #   - http: path
-  # NOTE: the following uses an "event" event (pubSub event in this case).
-  # Please create the corresponding resources in the Google Cloud
-  # before deploying this service through Serverless
-  #second:
+  notifications:
     handler: notifySlack
     events:
       - event:
